@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div class="flex flex-column gap:4 center-hor center-ver mt-4">
+  <%= link_to "Edit Profile", edit_user_path(@user), class: "button button--primary fit-content content-m" %>
+  <%# link_to "Back to users", users_path %>
+
+  <%# button_to "Destroy this user", @user, method: :delete %>
+
+  <div class="contenedor-encabezado mb-4">
+    <ul class="encabezado grid mb-4" id="encabezado">
+      <li class="item content-sm active">
+        <a href="#tweets" class= "flex gap-2 content-m center-ver center-hor gray-300">Tweets(<%= @user.tweets.size %>)</a>
+      </li>
+      <li class="item content-sm">
+        <a href="#likes" class= "flex gap-2 content-m center-ver center-hor gray-300">Likes(<%= @user.likes.size %>)</a>
+      </li>
+    </ul>
+
+    <div class="contentido" id="contenido">
+      <div id="tweets" >
+        <%= render @user.tweets %>
+      </div>
+
+      <div id="likes" class="flex flex-column item-center">
+        <% @user.likes.each do |like| %>
+          <%= render like.tweet %>
+        <% end%>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+

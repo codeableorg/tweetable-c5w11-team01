@@ -1,0 +1,15 @@
+<h2 class="heading text-center mb-4 items-center mt-4">Login</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "container-sign flex flex-column gap-4", data: { turbo: "false" } }) do |f| %>
+
+  <%= input_email(f, :email, resource, placeholder: "username@mail.com", autofocus: true) %>
+  <%= input_password(f, :password, resource, placeholder: "******") %>
+
+  <div class="actions">
+    <%= f.submit "Sign in", class: "button button--primary full-width" %>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= render "devise/shared/links" %>
+</div>
